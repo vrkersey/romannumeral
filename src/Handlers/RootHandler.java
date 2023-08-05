@@ -5,11 +5,18 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Collections;
 
+/**
+ * Handler for requests made to the root endpoint or all undefined endpoints
+ */
 public class RootHandler implements HttpHandler {
 
+    /**
+     * Displays a simple form for converting a decimal number to a roman numeral using the roman numeral endpoint
+     * and displays a simple form for stopping the webserver
+     * @param httpExchange HttpExchange - used to handle the response
+     * @throws IOException - Thrown if there is an issue writing the response
+     */
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         String response =

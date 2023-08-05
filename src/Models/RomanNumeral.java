@@ -24,7 +24,6 @@ public class RomanNumeral {
     }};
 
     public RomanNumeral(int decimal){
-        this.decimal = decimal;
         int current = decimal;
         StringBuilder romanNumberalBuilder = new StringBuilder();
 
@@ -36,6 +35,7 @@ public class RomanNumeral {
                 romanNumberalBuilder.append(letter);
             }
         }
+        this.decimal = decimal;
         this.romanNumeral = romanNumberalBuilder.toString();
     }
 
