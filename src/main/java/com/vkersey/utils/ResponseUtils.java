@@ -1,4 +1,4 @@
-package Utils;
+package com.vkersey.utils;
 
 import com.sun.net.httpserver.HttpExchange;
 

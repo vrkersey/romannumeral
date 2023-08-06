@@ -1,4 +1,4 @@
-package Models;
+package com.vkersey.models;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -1,8 +1,8 @@
-package Handlers;
+package com.vkersey.views;
 
-import Utils.ResponseUtils;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import com.vkersey.utils.ResponseUtils;
 
 import java.io.IOException;
 

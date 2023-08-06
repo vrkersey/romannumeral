@@ -1,10 +1,10 @@
-package Handlers;
+package com.vkersey.views;
 
-import Models.RomanNumeral;
-import Utils.RequestUtils;
-import Utils.ResponseUtils;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import com.vkersey.models.RomanNumeral;
+import com.vkersey.utils.RequestUtils;
+import com.vkersey.utils.ResponseUtils;
 
 import java.io.IOException;
 import java.util.Map;
