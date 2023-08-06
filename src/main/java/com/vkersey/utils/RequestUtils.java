@@ -1,5 +1,6 @@
 package com.vkersey.utils;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,9 @@ public class RequestUtils {
      * @return - Map of key value pairs
      */
     public static Map<String, String> getParameters(String fullQuery) {
+        if (fullQuery == null || fullQuery.isEmpty()) {
+            return Collections.emptyMap();
+        }
         String[] queries = fullQuery.split("&");
         Map<String, String> queryParameters = new HashMap<>();
         for (String query : queries) {

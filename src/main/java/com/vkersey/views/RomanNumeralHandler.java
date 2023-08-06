@@ -5,7 +5,6 @@ import com.sun.net.httpserver.HttpHandler;
 import com.vkersey.models.RomanNumeral;
 import com.vkersey.utils.RequestUtils;
 import com.vkersey.utils.ResponseUtils;
-
 import java.io.IOException;
 import java.util.Map;
 
@@ -32,7 +31,7 @@ public class RomanNumeralHandler implements HttpHandler {
             String text = "Missing 'query' parameter";
             ResponseUtils.setErrorResponse(httpExchange, text, 400);
         } else if(!canConvertToInt(decimalString)) {
-            String text = "'query' parameter is not a number";
+            String text = "'query' parameter is not an integer";
             ResponseUtils.setErrorResponse(httpExchange, text, 400);
         } else {
             int decimal = Integer.parseInt(decimalString);
@@ -53,6 +52,6 @@ public class RomanNumeralHandler implements HttpHandler {
      * @return - true iff the String is a number that can be converted
      */
     private boolean canConvertToInt (String decimal) {
-        return decimal.matches("[0-9.]+");
+        return decimal.matches("[0-9]+");
     }
 }

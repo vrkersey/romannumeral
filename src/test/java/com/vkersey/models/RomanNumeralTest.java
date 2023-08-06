@@ -1,17 +1,15 @@
 package com.vkersey.models;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-public class RomanNumeralTest extends TestCase {
-    public RomanNumeralTest(String testName) {
-        super(testName);
-    }
-    public static Test suite() {
-        return new TestSuite(RomanNumeralTest.class);
-    }
+import static org.junit.Assert.assertEquals;
 
+@ExtendWith({MockitoExtension.class})
+public class RomanNumeralTest {
+
+    @Test
     public void testSimple() {
         assertEquals("I", new RomanNumeral(1).getRomanNumeral());
         assertEquals("II", new RomanNumeral(2).getRomanNumeral());
@@ -34,7 +32,7 @@ public class RomanNumeralTest extends TestCase {
         assertEquals("M", new RomanNumeral(1000).getRomanNumeral());
         assertEquals("MI", new RomanNumeral(1001).getRomanNumeral());
     }
-
+    @Test
     public void testRandom() {
         assertEquals("CCXLVII", new RomanNumeral(247).getRomanNumeral());
         assertEquals("CDXLII", new RomanNumeral(442).getRomanNumeral());
@@ -46,7 +44,7 @@ public class RomanNumeralTest extends TestCase {
         assertEquals("MMDCLXXXVII", new RomanNumeral(2687).getRomanNumeral());
         assertEquals("MMMDCCCLXXXVIII", new RomanNumeral(3888).getRomanNumeral());
     }
-
+    @Test
     public void testDecimal() {
         assertEquals(247, new RomanNumeral(247).getDecimal());
         assertEquals(442, new RomanNumeral(442).getDecimal());
@@ -58,13 +56,13 @@ public class RomanNumeralTest extends TestCase {
         assertEquals(2687, new RomanNumeral(2687).getDecimal());
         assertEquals(3888, new RomanNumeral(3888).getDecimal());
     }
-
+    @Test
     public void testBounds() {
         assertEquals("", new RomanNumeral(0).getRomanNumeral());
         assertEquals("", new RomanNumeral(-50).getRomanNumeral());
         assertEquals("", new RomanNumeral(5543).getRomanNumeral());
     }
-
+    @Test
     public void testToString() {
         RomanNumeral romanNumeral = new RomanNumeral(1);
         assertEquals("{\"input\": \"1\",\"output\": \"I\"}", romanNumeral.toString());

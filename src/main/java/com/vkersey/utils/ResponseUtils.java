@@ -1,7 +1,6 @@
 package com.vkersey.utils;
 
 import com.sun.net.httpserver.HttpExchange;
-
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -43,7 +42,7 @@ public class ResponseUtils {
      * @throws IOException - Throws if unable to modify response headers or response body
      */
     public static void setErrorResponse(HttpExchange httpExchange, String errorText, int htmlErrorCode) throws IOException {
-        String html = "<h1>Error: <i>" + errorText + "</i></h1>";
+        String html = "<h1>ERROR: <i>" + errorText + "</i></h1>";
         httpExchange.getResponseHeaders().add("Content-Type", "text/html");
         httpExchange.getResponseHeaders().add("charset", "UTF-8");
         httpExchange.sendResponseHeaders(htmlErrorCode, html.length());

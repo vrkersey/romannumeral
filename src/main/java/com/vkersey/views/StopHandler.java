@@ -4,7 +4,6 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import com.vkersey.utils.ResponseUtils;
-
 import java.io.IOException;
 
 /**
@@ -12,6 +11,8 @@ import java.io.IOException;
  */
 public class StopHandler implements HttpHandler {
     private final HttpServer server;
+
+    protected static final String RESPONSE = "<h1>Stopping Web Server...</h1>";
 
     /**
      * Override the default constructor so this handler has access to the server to stop it
@@ -29,8 +30,7 @@ public class StopHandler implements HttpHandler {
      */
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        String response = "<h1>Stopping Web Server...</h1>";
-        ResponseUtils.setHtmlResponse(httpExchange, response);
+        ResponseUtils.setHtmlResponse(httpExchange, RESPONSE);
         server.stop(2);
     }
 }
