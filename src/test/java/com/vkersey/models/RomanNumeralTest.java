@@ -65,6 +65,6 @@ public class RomanNumeralTest {
     @Test
     public void testToString() {
         RomanNumeral romanNumeral = new RomanNumeral(1);
-        assertEquals("{\"input\": \"1\",\"output\": \"I\"}", romanNumeral.toString());
+        assertEquals("{\"input\":\"1\",\"output\":\"I\"}", romanNumeral.toString());
     }
 }

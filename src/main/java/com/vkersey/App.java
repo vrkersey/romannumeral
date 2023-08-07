@@ -4,6 +4,8 @@ import com.sun.net.httpserver.HttpServer;
 import com.vkersey.views.RomanNumeralHandler;
 import com.vkersey.views.RootHandler;
 import com.vkersey.views.StopHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -16,6 +18,7 @@ import java.net.InetSocketAddress;
  *  - / (and all other requests) simple html for accessing both other endpoints
  */
 public class App {
+    private static final Logger LOGGER = LogManager.getLogger(App.class);
 
     private static final int PORT = 8080;
     private static final String DEFAULT_ENDPOINT = "/";
@@ -32,10 +35,11 @@ public class App {
             server.createContext(ROMAN_NUMERAL_ENDPOINT, new RomanNumeralHandler());
             //use default implementation of executor
             server.setExecutor(null);
+            LOGGER.info("Server Started");
             //start the server
             server.start();
         } catch (IOException e) {
-            System.out.println("Error, exception thrown by server:\n" + e);
+            LOGGER.error("Unable to create HttpServer", e);
         }
     }
 }

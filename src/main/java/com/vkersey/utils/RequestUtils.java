@@ -25,9 +25,7 @@ public class RequestUtils {
             String[] queryParts = query.split("=");
             String queryKey = queryParts[0];
             String queryValue = queryParts.length == 2 ? queryParts[1] : "";
-            if (!queryParameters.containsKey(queryKey)) {
-                queryParameters.put(queryKey, queryValue);
-            }
+            queryParameters.putIfAbsent(queryKey, queryValue);
         }
         return queryParameters;
     }

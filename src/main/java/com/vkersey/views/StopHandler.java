@@ -4,12 +4,15 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import com.vkersey.utils.ResponseUtils;
-import java.io.IOException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  * Handler for requests made to the stop endpoint
  */
 public class StopHandler implements HttpHandler {
+    private static final Logger LOGGER = LogManager.getLogger(StopHandler.class);
     private final HttpServer server;
 
     protected static final String RESPONSE = "<h1>Stopping Web Server...</h1>";
@@ -26,11 +29,12 @@ public class StopHandler implements HttpHandler {
      * Sends a simple html text informing the user that the server is being stopped
      * issues a command to the server to stop in two seconds
      * @param httpExchange HttpExchange - used to handle the response
-     * @throws IOException - Thrown if there is an issue writing the response
      */
     @Override
-    public void handle(HttpExchange httpExchange) throws IOException {
+    public void handle(HttpExchange httpExchange) {
+        LOGGER.debug("Stop Handler hit");
         ResponseUtils.setHtmlResponse(httpExchange, RESPONSE);
         server.stop(2);
+        LOGGER.info("Server Stopped");
     }
 }

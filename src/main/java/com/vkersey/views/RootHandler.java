@@ -3,12 +3,16 @@ package com.vkersey.views;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.vkersey.utils.ResponseUtils;
-import java.io.IOException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  * Handler for requests made to the root endpoint or all undefined endpoints
  */
 public class RootHandler implements HttpHandler {
+    private static final Logger LOGGER = LogManager.getLogger(RootHandler.class);
 
     protected static final String RESPONSE =
             "<h1>Roman Numeral Converter</h1>" +
@@ -25,10 +29,10 @@ public class RootHandler implements HttpHandler {
      * Displays a simple form for converting a decimal number to a roman numeral using the roman numeral endpoint
      * and displays a simple form for stopping the webserver
      * @param httpExchange HttpExchange - used to handle the response
-     * @throws IOException - Thrown if there is an issue writing the response
      */
     @Override
-    public void handle(HttpExchange httpExchange) throws IOException {
+    public void handle(HttpExchange httpExchange) {
+        LOGGER.debug("Root Handler hit");
         ResponseUtils.setHtmlResponse(httpExchange, RESPONSE);
     }
 }

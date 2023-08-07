@@ -27,7 +27,7 @@ public class RomanNumeralHandlerTest {
 
         RomanNumeralHandler romanNumeralHandler = new RomanNumeralHandler();
         romanNumeralHandler.handle(httpExchange);
-        assertEquals("{\"input\": \"1\",\"output\": \"I\"}", actualResponseBody.toString());
+        assertEquals("{\"input\":\"1\",\"output\":\"I\"}", actualResponseBody.toString());
     }
     @Test
     public void testNotAnInteger() throws IOException, URISyntaxException {
