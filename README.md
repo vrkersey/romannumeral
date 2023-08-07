@@ -24,11 +24,11 @@ To run the webserver, in the project root directory run the following command us
 
 ### Docker
 
-To build a docker image, in the project root directory run the following command to build a docker image
+To build a docker image, in the project root directory run the following command to build a docker image:
     
     docker build -t roman_numeral_webserver .
 
-To run the newly created docker image run the following command
+To run the newly created docker image run the following command:
 
     docker run -d -p 8080:8080 roman_numeral_webserver
 
@@ -41,10 +41,10 @@ test, execute:
 
 ## Methodology
 
-I considered node originally for setting up the web server but chose to try to stick just with Java because I haven't had an opportunity to set up a pure Java web server before. 
+I considered node originally for setting up the web server but chose to stick just with Java because I haven't had an opportunity to set up a pure Java web server before. 
 This was pretty simple using [HttpServer](https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpServer.html).
 HttpServer requires setting up [HttpHandler](https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpHandler.html) to handle the request. I decided to add 
-some basic html to the RootHandler to add a friendly ui to reach the other two endpoints. I also felt it was necessary to set up an endpoint to stop the running server without having to kill it through the terminal
+some basic html to the RootHandler to add a friendly ui to reach the other two endpoints. I also felt it was necessary to set up an endpoint to stop the running server without having to kill it through the terminal.
 I restricted the functionality within RomanNumeralHandler to just handle the request and the response,
 while shifting the logic for converting the Arabic Number into Roman Numerals to a RomanNumeral class. The algorithm I used to convert Arabic Numbers to Roman Numerals is similar to how change
 is figured on a monetary transaction where you start by handing back the maximum number of the largest domination of currency and work your way to the smallest. 
@@ -57,8 +57,8 @@ is figured on a monetary transaction where you start by handing back the maximum
     1x$0.05 
     0x$0.01
 
-For unit testing I decided to use junit, jupiter, and mockito, this is what I've used before and was pretty simple to reimplement here and gave me the freedom to mock the 
-HttpExchange and monitor what the data being set. The best use case for unit testing was the Roman Numeral class so I can fully test the logic used in the conversion. I would have liked to explore
+For unit testing I used junit, jupiter, and mockito, this is what I've used before and was pretty simple to reimplement here and gave me the freedom to mock the 
+HttpExchange and monitor what data is being set. I strived to find all the edge cases in the unit testing for the RomanNumeral class because this file holds all the logic around the conversion. I would have liked to explore
 a way to use integrated testing to test the different handlers better and do more black-box-testing on the implementation.
 
 ## Maven Dependencies
