@@ -62,6 +62,8 @@ HttpExchange and monitor what data is being set. I strived to find all the edge 
 a way to use integrated testing to test the different handlers better and do more black-box-testing on the implementation.
 
 ## Maven Dependencies
+* gson - Easily create and modify Json
+* log4j - Better logging
 * junit
 * junit-jupiter-api
 * mockito-core
