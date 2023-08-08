@@ -6,5 +6,5 @@ RUN mvn package
 
 FROM openjdk:8
 EXPOSE 8080
-COPY --from=MAVEN_BUILD /tmp/target/romannumeral*.jar romannumeral.jar
+COPY --from=MAVEN_BUILD /tmp/target/romannumeral-1.0-SNAPSHOT-jar-with-dependencies.jar romannumeral.jar
 ENTRYPOINT ["java","-jar","romannumeral.jar"]

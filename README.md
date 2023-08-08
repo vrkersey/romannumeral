@@ -20,7 +20,7 @@ To build all the files into a single jar, in the project root directory run the 
 
 To run the webserver, in the project root directory run the following command using Java 8:
 
-    java -jar target/romannumeral-1.0-SNAPSHOT.jar
+    java -jar target/romannumeral-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 ### Docker
 
